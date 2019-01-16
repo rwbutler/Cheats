@@ -127,6 +127,12 @@ Should the `CheatCode` enter the `.notMatched` state then the user cannot retry 
 
 #### Actions
 
+Actions are the building blocks of cheat code sequences. Available actions are:
+
+- `keyPress` - For whenever a key on the keyboard is pressed.
+- `shake` - When the user shakes the device.
+- `swipe` - In the directions `up`, `down`, `left` and `right`.
+
 If at any time, the next action required to complete the cheat code sequence is needed, this can be retrieve using `nextAction()` which optionally returns a `CheatCode.Action` if any further actions are required in order to complete the sequence.
 
 Likewise `previousAction()` will return the last action successfully completed by the user as part of the cheat code sequence.
