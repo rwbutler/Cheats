@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name             = 'Cheats'
   s.version          = '1.0.0'
   s.swift_version    = '4.2'
-  s.summary          = 'Retro cheat codes for progressive iOS apps.'
+  s.summary          = 'Retro cheat codes for modern iOS apps.'
   s.description      = <<-DESC
 Allows developers to implement retro style cheat codes like the Konami code consisting of swipes and key presses.
                        DESC
