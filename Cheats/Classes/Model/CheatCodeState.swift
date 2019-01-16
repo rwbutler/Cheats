@@ -10,10 +10,10 @@ import Foundation
 public enum CheatCodeState {
     /// Cheat code sequence has been performed correctly.
     case matched
-    
+
     /// Cheat code sequence has been performed correctly so far with further actions required to complete the sequence.
     case matching
-    
+
     /// Cheat code sequence has been performed incorrectly.
     case notMatched
 }

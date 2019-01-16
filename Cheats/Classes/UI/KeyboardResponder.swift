@@ -9,21 +9,20 @@ import Foundation
 import UIKit
 
 class KeyboardResponder: UIControl, UIKeyInput, UITextInputTraits {
-    
+
     /// For retrieval of state information
-    weak var associatedGestureRecogizer: CheatCodeGestureRecognizer? = nil
-    var returnKeyType: UIReturnKeyType = .done
+    weak var associatedGestureRecogizer: CheatCodeGestureRecognizer?
+
+    /// For UIKeyInput conformance
     var hasText: Bool = false
-    
-    
+
     override var canBecomeFirstResponder: Bool {
         return true
     }
-    
-    func deleteBackward() {
-        // Do nothing
+
+    func deleteBackward() { // Do nothing
     }
-    
+
     func insertText(_ text: String) {
         guard let cheatCode = associatedGestureRecogizer?.cheatCode else { return }
         cheatCode.performed(.keyPress(text))
@@ -31,12 +30,19 @@ class KeyboardResponder: UIControl, UIKeyInput, UITextInputTraits {
             resignFirstResponder()
             return
         }
-        switch cheatCode.nextAction() {
-        case .some(.swipe):
-            resignFirstResponder()
-        default:
-            return
+        configureForNextAction()
+    }
+
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard let cheatCode = associatedGestureRecogizer?.cheatCode else { return }
+        if motion == .motionShake {
+            cheatCode.performed(.shake)
+            configureForNextAction()
         }
     }
-    
+
+    private func configureForNextAction() {
+        associatedGestureRecogizer?.configureForNextAction()
+    }
+
 }

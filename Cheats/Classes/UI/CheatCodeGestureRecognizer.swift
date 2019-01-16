@@ -12,41 +12,64 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
     public let cheatCode: CheatCode?
     public var movementDelta: CGFloat = 50
     private var previousTouchPoint: CGPoint = CGPoint.zero
-    internal var responder: KeyboardResponder? = nil
-    
+    private var observation: NSKeyValueObservation?
+    internal var keyboardResponder: KeyboardResponder = KeyboardResponder()
+    internal var shakeResponder: ShakeResponder = ShakeResponder()
+
     public init(cheatCode: CheatCode, target: Any?, action: Selector?) {
         self.cheatCode = cheatCode
         super.init(target: target, action: action)
-    }
-    
-    private func showKeyboard() {
-        if responder == nil {
-            responder = KeyboardResponder()
-            responder?.associatedGestureRecogizer = self
+        keyboardResponder.associatedGestureRecogizer = self
+        shakeResponder.associatedGestureRecogizer = self
+        observation = self.observe(\.view, options: [.new]) { _, _ in
+            self.addResponders()
         }
-        guard let responder = responder else { return }
-        if responder.superview == nil {
-            view?.addSubview(responder)
-        }
-        responder.becomeFirstResponder()
     }
-    
+
+    deinit {
+        observation = nil
+    }
+
+    private func addKeyboardResponder() {
+        if keyboardResponder.superview == nil {
+            view?.addSubview(keyboardResponder)
+        }
+    }
+
+    private func addResponders() {
+        addKeyboardResponder()
+        addShakeResponder()
+        configureForNextAction()
+    }
+
+    private func addShakeResponder() {
+        if shakeResponder.superview == nil {
+            shakeResponder.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+            shakeResponder.backgroundColor = UIColor.red
+            view?.addSubview(shakeResponder)
+            shakeResponder.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+        }
+    }
+
     override public func reset() {
         super.reset()
         cheatCode?.reset()
+        configureForNextAction()
     }
-    
+
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         guard touches.count == 1 else { // We only support swipes currently.
             state = .failed
             return
         }
-        previousTouchPoint = touches.first!.location(in: view)
-        state = .began
+        if let touchPoint = touches.first?.location(in: view) {
+            previousTouchPoint = touchPoint
+            state = .began
+        }
     }
-    
+
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
-        let touch = touches.first!.location(in: view)
+        guard let touch = touches.first?.location(in: view) else { return }
         let deltaX = touch.x - previousTouchPoint.x
         let deltaY = touch.y - previousTouchPoint.y
 
@@ -62,7 +85,7 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
         if deltaY < -movementDelta {
             cheatCode?.performed(.swipe(.up))
         }
-        
+
         switch cheatCode?.state() {
         case .some(.matched):
             state = .recognized
@@ -73,15 +96,21 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
         default:
             break
         }
-        
+        configureForNextAction()
+    }
+
+    internal func configureForNextAction() {
         switch cheatCode?.nextAction() {
         case .some(.keyPress):
-            showKeyboard()
+            keyboardResponder.becomeFirstResponder()
+        case .some(.shake):
+            shakeResponder.becomeFirstResponder()
         default:
-            break
+            keyboardResponder.resignFirstResponder()
+            shakeResponder.becomeFirstResponder()
         }
     }
-    
+
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
     }
 }

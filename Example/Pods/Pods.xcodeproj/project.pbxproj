@@ -13,6 +13,7 @@
 		1327FF5F21EF8F4600CDB31B /* CheatCodeSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327FF5821EF8F4600CDB31B /* CheatCodeSwipeDirection.swift */; };
 		1327FF6021EF8F4600CDB31B /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327FF5A21EF8F4600CDB31B /* KeyboardResponder.swift */; };
 		1327FF6121EF8F4600CDB31B /* CheatCodeGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327FF5B21EF8F4600CDB31B /* CheatCodeGestureRecognizer.swift */; };
+		1327FF6421EFB88D00CDB31B /* ShakeResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1327FF6321EFB88D00CDB31B /* ShakeResponder.swift */; };
 		39D432A1FBE83EFB310452C0646D73AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		4AD6C606AF0C165D89E293E059D1365A /* Pods-Cheats_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E16BF34D1C9B5B3178A8083073D069B5 /* Pods-Cheats_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		523B62139960EC4BDC7B4777AD2365B4 /* Pods-Cheats_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 93839092D97E288629E377D810DC90EA /* Pods-Cheats_Tests-dummy.m */; };
@@ -51,6 +52,7 @@
 		1327FF5821EF8F4600CDB31B /* CheatCodeSwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatCodeSwipeDirection.swift; sourceTree = "<group>"; };
 		1327FF5A21EF8F4600CDB31B /* KeyboardResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		1327FF5B21EF8F4600CDB31B /* CheatCodeGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatCodeGestureRecognizer.swift; sourceTree = "<group>"; };
+		1327FF6321EFB88D00CDB31B /* ShakeResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeResponder.swift; sourceTree = "<group>"; };
 		2002059F86C8297FB32613F4A782FDC6 /* Pods-Cheats_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cheats_Example-umbrella.h"; sourceTree = "<group>"; };
 		29E4F54DA27D4924A463257EB286CD19 /* Pods-Cheats_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cheats_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3261A620A3BAB888128C8184216EC5D4 /* Pods-Cheats_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cheats_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				1327FF5A21EF8F4600CDB31B /* KeyboardResponder.swift */,
 				1327FF5B21EF8F4600CDB31B /* CheatCodeGestureRecognizer.swift */,
+				1327FF6321EFB88D00CDB31B /* ShakeResponder.swift */,
 			);
 			name = UI;
 			path = Cheats/Classes/UI;
@@ -297,6 +300,7 @@
 				4E35B0BE4376BA4B723C17A58E517D24 /* Sources */,
 				289369B3F297A72AEC84B908CAB0C92F /* Frameworks */,
 				BA09C8F048CC6315F3F9F782B06AD72C /* Headers */,
+				1327FF6221EFB0AB00CDB31B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -376,6 +380,27 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1327FF6221EFB0AB00CDB31B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\ncd ../../Cheats\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2715B1A6A4F8421A0B18FC0EAA0624D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -394,6 +419,7 @@
 				1327FF5F21EF8F4600CDB31B /* CheatCodeSwipeDirection.swift in Sources */,
 				1327FF5C21EF8F4600CDB31B /* CheatCode.swift in Sources */,
 				A3958B9B961E482C11C5247EEDBF945A /* Cheats-dummy.m in Sources */,
+				1327FF6421EFB88D00CDB31B /* ShakeResponder.swift in Sources */,
 				1327FF6121EF8F4600CDB31B /* CheatCodeGestureRecognizer.swift in Sources */,
 				1327FF6021EF8F4600CDB31B /* KeyboardResponder.swift in Sources */,
 			);

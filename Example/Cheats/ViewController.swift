@@ -14,38 +14,39 @@ class ViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var cheatStateLabel: UILabel!
     @IBOutlet weak var nextActionLabel: UILabel!
-    
+
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Define the cheat code as a sequence of actions
-        let actionSequence: [CheatCode.Action] = [.swipe(.up), .swipe(.down), .swipe(.left), .swipe(.right), .keyPress("a"), .keyPress("b")]
-        
+        let actionSequence: [CheatCode.Action] = [.swipe(.up), .swipe(.down), .swipe(.left),
+                                                  .swipe(.right), .keyPress("a"), .keyPress("b")]
+
         // Update the UI as the cheat code sequence progresses
         let cheatCode = CheatCode(actions: actionSequence) { [weak self] cheatCode in
             self?.updateCheatStateLabel(cheatCode: cheatCode)
             self?.updateNextActionLabel(cheatCode: cheatCode)
         }
-        
+
         // Update the label indicating the action to be performed next by the user
         updateNextActionLabel(cheatCode: cheatCode)
-        
+
         // Add the gesture recognizer
         let gestureRecognizer = CheatCodeGestureRecognizer(cheatCode: cheatCode, target: self,
                                                            action: #selector(actionPerformed(_:)))
         view.addGestureRecognizer(gestureRecognizer)
     }
-    
+
     @IBAction func actionPerformed(_ sender: UIGestureRecognizer) {
         print("Gesture recognizer state changed.")
     }
-    
+
 }
 
 // MARK: Cheat Codes
 extension ViewController {
-    
+
     /// Reset the UI after cheat code correct / incorrect
     func reset(cheatCode: CheatCode) {
         let deadline = DispatchTime.now() + 2.0
@@ -55,7 +56,7 @@ extension ViewController {
             self.updateNextActionLabel(cheatCode: cheatCode)
         }
     }
-    
+
     /// Update UI to indicate cheat sequence progress
     func updateCheatStateLabel(cheatCode: CheatCode) {
         switch cheatCode.state() {
@@ -69,7 +70,7 @@ extension ViewController {
             self.reset(cheatCode: cheatCode)
         }
     }
-    
+
     /// Update UI to indicate the next action to be performed in the sequence
     func updateNextActionLabel(cheatCode: CheatCode) {
         if let nextAction = cheatCode.nextAction() {
@@ -78,6 +79,5 @@ extension ViewController {
             self.nextActionLabel.text = ""
         }
     }
-    
-}
 
+}

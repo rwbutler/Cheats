@@ -9,6 +9,7 @@ import Foundation
 
 /// Available actions which can be performed as part of the cheat code sequence.
 public enum CheatCodeAction {
+    case shake
     case swipe(_ direction: CheatCodeSwipeDirection)
     case keyPress(_ key: String)
 }
@@ -16,10 +17,10 @@ public enum CheatCodeAction {
 extension CheatCodeAction: Equatable {
     public static func == (lhs: CheatCodeAction, rhs: CheatCodeAction) -> Bool {
         switch(lhs, rhs) {
-        case (.swipe(let a), .swipe(let b)):
-            return a == b
-        case (.keyPress(let a), .keyPress(let b)):
-            return a == b
+        case (.swipe(let lhsDirection), .swipe(let rhsDirection)):
+            return lhsDirection == rhsDirection
+        case (.keyPress(let lhsKey), .keyPress(let rhsKey)):
+            return lhsKey == rhsKey
         default:
             return false
         }
@@ -29,6 +30,8 @@ extension CheatCodeAction: Equatable {
 extension CheatCodeAction: CustomStringConvertible {
     public var description: String {
         switch self {
+        case .shake:
+            return "shake"
         case .swipe(let direction):
             return "swipe \(direction)"
         case .keyPress(let key):
@@ -36,4 +39,3 @@ extension CheatCodeAction: CustomStringConvertible {
         }
     }
 }
-

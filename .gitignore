@@ -18,7 +18,8 @@ profile
 DerivedData
 *.hmap
 *.ipa
-
+*.afdesign
+*.key
 # Bundler
 .bundle
 

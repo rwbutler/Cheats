@@ -8,6 +8,7 @@
 import Foundation
 
 public enum CheatCodeSwipeDirection {
+    // swiftlint:disable:next identifier_name
     case up
     case down
     case left
