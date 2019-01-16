@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Cheats_Example' do
+  pod 'Cheats', :path => '../'
+
+  target 'Cheats_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

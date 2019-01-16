@@ -1,0 +1,6 @@
+framework module Cheats {
+  umbrella header "Cheats-umbrella.h"
+
+  export *
+  module * { export * }
+}

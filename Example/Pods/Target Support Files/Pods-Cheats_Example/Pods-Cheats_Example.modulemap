@@ -1,0 +1,6 @@
+framework module Pods_Cheats_Example {
+  umbrella header "Pods-Cheats_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
