@@ -429,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEEF3856A5AA7A661F9F7EE51D8935B /* Cheats.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -565,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBEEF3856A5AA7A661F9F7EE51D8935B /* Cheats.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
