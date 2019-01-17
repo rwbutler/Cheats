@@ -85,32 +85,37 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
         if deltaY < -movementDelta {
             cheatCode?.performed(.swipe(.up))
         }
-
-        switch cheatCode?.state() {
-        case .some(.matched):
-            state = .recognized
-        case .some(.matching):
-            state = .changed
-        case .some(.notMatched):
-            state = .failed
-        default:
-            break
-        }
         configureForNextAction()
     }
 
-    internal func configureForNextAction() {
-        switch cheatCode?.nextAction() {
-        case .some(.keyPress):
+    public func configureForNextAction() {
+        updateGestureRecognizerState()
+        guard let nextAction = cheatCode?.nextAction() else { return }
+        switch nextAction {
+        case .keyPress:
             keyboardResponder.becomeFirstResponder()
-        case .some(.shake):
+        case .shake:
             shakeResponder.becomeFirstResponder()
-        default:
+        case .swipe:
             keyboardResponder.resignFirstResponder()
-            shakeResponder.becomeFirstResponder()
+            shakeResponder.resignFirstResponder()
         }
     }
 
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
+    }
+
+    internal func updateGestureRecognizerState() {
+        guard let cheatCodeState = cheatCode?.state() else { return }
+        switch cheatCodeState {
+        case .matched:
+            state = .recognized
+        case .matching:
+            state = .changed
+        case .notMatched:
+            state = .failed
+        case .reset:
+            state = .possible
+        }
     }
 }

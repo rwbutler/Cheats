@@ -16,12 +16,15 @@ public enum CheatCodeState {
 
     /// Cheat code sequence has been performed incorrectly.
     case notMatched
+
+    /// Cheat code at the beginning / reset - no recognized actions have been performed.
+    case reset
 }
 
 extension CheatCodeState: Equatable {
     public static func == (lhs: CheatCodeState, rhs: CheatCodeState) -> Bool {
         switch(lhs, rhs) {
-        case (.matched, .matched), (.matching, .matching), (.notMatched, .notMatched):
+        case (.matched, .matched), (.matching, .matching), (.notMatched, .notMatched), (.reset, .reset):
             return true
         default:
             return false
@@ -38,6 +41,8 @@ extension CheatCodeState: CustomStringConvertible {
             return "matching"
         case .notMatched:
             return "not matched"
+        case .reset:
+            return "reset"
         }
     }
 }

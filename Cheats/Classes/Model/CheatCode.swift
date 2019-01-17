@@ -17,20 +17,20 @@ public class CheatCode {
     private let actions: [CheatCodeAction]
 
     /// Callback for informing observers of completion progress as actions are performed.
-    private let onActionPerformed: ((CheatCode) -> Void)?
+    private let onStateChanged: ((CheatCode) -> Void)?
 
     /// Actions that have been performed by the user up until this point.
     private var performed: [CheatCodeAction]
 
-    public init(actions: [CheatCodeAction], onActionPerformed: ((CheatCode) -> Void)? = nil) {
+    public init(actions: [CheatCodeAction], onStateChanged: ((CheatCode) -> Void)? = nil) {
         self.actions = actions
-        self.onActionPerformed = onActionPerformed
+        self.onStateChanged = onStateChanged
         self.performed = []
     }
 
     /// The next action to be performed in the cheat code sequence where the sequence has not yet been matched.
     public func nextAction() -> Action? {
-        guard state() == .matching else { return nil }
+        guard state() == .matching || state() == .reset else { return nil }
         if actions.count > performed.count {
             let nextAction = actions[performed.count]
             return nextAction
@@ -42,7 +42,7 @@ public class CheatCode {
     public func performed(_ action: CheatCodeAction) {
         performed.append(action)
         unowned let unownedSelf = self
-        onActionPerformed?(unownedSelf)
+        onStateChanged?(unownedSelf)
     }
 
     public func previousAction() -> Action? {
@@ -52,6 +52,8 @@ public class CheatCode {
     /// Resets the sequence of actions of performed to allow the user to try again.
     public func reset() {
         self.performed = []
+        unowned let unownedSelf = self
+        onStateChanged?(unownedSelf)
     }
 
     /// Determines whether or not the cheat code has been matched by the performed actions,
@@ -59,6 +61,9 @@ public class CheatCode {
     /// returns: State of cheat code progress so far.
     public func state() -> State {
         var result: State = .matching
+        if performed.isEmpty {
+            result = .reset
+        }
         for counter in 0..<actions.count {
             let action = actions[counter]
             if counter < performed.count {

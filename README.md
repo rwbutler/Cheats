@@ -120,6 +120,7 @@ As shown in the above code snippet, it is possible to query the  state of the `C
 - `matched` - indicates that the user has successfully completed the cheat code.
 - `matching` - indicates that the user has partially completed the cheat code with further actions required in order to successfully unlock the cheat.
 - `notMatched` - indicates that the user got one of the actions wrong whilst attempting the cheat code action sequence.
+- `reset` - indicates that the user has not yet begun to input the cheat code sequence or the sequence has been reset to its initial state.
 
 #### Reset
 

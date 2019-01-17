@@ -28,7 +28,6 @@ class KeyboardResponder: UIControl, UIKeyInput, UITextInputTraits {
         cheatCode.performed(.keyPress(text))
         if cheatCode.state() != .matching {
             resignFirstResponder()
-            return
         }
         configureForNextAction()
     }

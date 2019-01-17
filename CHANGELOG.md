@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2019-01-17
+### Added
+- Added a new state `reset` for the case whereby the cheat code sequence has not yet begun or has been reset.
+### Changed
+- Removed unneeded to call `reset()` from `ViewController` as the gesture recognizer will reset for us.
+
 ## [1.0.0] - 2019-01-16
 ### Added
 - Added significant project documentation.

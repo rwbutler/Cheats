@@ -20,12 +20,7 @@ class ShakeResponder: UIControl {
         guard let cheatCode = associatedGestureRecogizer?.cheatCode else { return }
         if motion == .motionShake {
             cheatCode.performed(.shake)
-            switch cheatCode.nextAction() {
-            case .some(.keyPress):
-                becomeFirstResponder()
-            default:
-                return
-            }
+            associatedGestureRecogizer?.configureForNextAction()
         }
     }
 
