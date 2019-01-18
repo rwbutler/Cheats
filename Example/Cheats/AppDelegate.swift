@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Cheats
 //
-//  Created by rwbutler on 01/16/2019.
-//  Copyright (c) 2019 rwbutler. All rights reserved.
+//  Created by Ross Butler on 01/16/2019.
+//  Copyright (c) 2019 Ross Butler. All rights reserved.
 //
 
 import UIKit
