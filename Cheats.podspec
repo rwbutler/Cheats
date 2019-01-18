@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Cheats'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.swift_version    = '4.2'
   s.summary          = 'Retro cheat codes for modern iOS apps.'
   s.description      = <<-DESC

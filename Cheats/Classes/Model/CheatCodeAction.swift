@@ -21,6 +21,8 @@ extension CheatCodeAction: Equatable {
             return lhsDirection == rhsDirection
         case (.keyPress(let lhsKey), .keyPress(let rhsKey)):
             return lhsKey == rhsKey
+        case (.shake, .shake):
+            return true
         default:
             return false
         }
