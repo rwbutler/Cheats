@@ -133,6 +133,7 @@ Actions are the building blocks of cheat code sequences. Available actions are:
 - `keyPress` - For whenever a key on the keyboard is pressed.
 - `shake` - When the user shakes the device.
 - `swipe` - In the directions `up`, `down`, `left` and `right`.
+- `tap` - Specified with the number of taps required.
 
 If at any time, the next action required to complete the cheat code sequence is needed, this can be retrieve using `nextAction()` which optionally returns a `CheatCode.Action` if any further actions are required in order to complete the sequence.
 
