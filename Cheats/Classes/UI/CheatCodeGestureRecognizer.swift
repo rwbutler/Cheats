@@ -85,7 +85,23 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
         if deltaY < -movementDelta {
             cheatCode?.performed(.swipe(.up))
         }
+        if pointsWithinTolerance(point1: previousTouchPoint, point2: touch),
+            let nextAction = cheatCode?.nextAction(),
+            let tapCount = touches.first?.tapCount,
+            case .tap(let numberOfTaps) = nextAction,
+            tapCount == numberOfTaps {
+            cheatCode?.performed(nextAction)
+        }
+
         configureForNextAction()
+    }
+
+    /// Checks two points to determine whether they are within an acceptable distance of one another.
+    private func pointsWithinTolerance(point1: CGPoint, point2: CGPoint) -> Bool {
+        let tolerance: CGFloat = 10
+        let deltaX = abs(point1.x - point2.x)
+        let deltaY = abs(point1.y - point2.y)
+        return deltaX < tolerance && deltaY < tolerance
     }
 
     public func configureForNextAction() {
@@ -96,7 +112,7 @@ public class CheatCodeGestureRecognizer: UIGestureRecognizer {
             keyboardResponder.becomeFirstResponder()
         case .shake:
             shakeResponder.becomeFirstResponder()
-        case .swipe:
+        case .swipe, .tap:
             keyboardResponder.resignFirstResponder()
             shakeResponder.resignFirstResponder()
         }

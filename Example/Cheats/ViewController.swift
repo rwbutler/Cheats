@@ -52,9 +52,10 @@ class ViewController: UIViewController {
 extension ViewController {
 
     func showAlert(message: String?) {
-        gestureRecognizer?.configureForNextAction()
         let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.gestureRecognizer?.configureForNextAction()
+        }
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }

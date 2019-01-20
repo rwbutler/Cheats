@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'Cheats'
-  s.version          = '1.1.1'
+  s.version          = '1.2.0'
   s.swift_version    = '4.2'
   s.summary          = 'Retro cheat codes for modern iOS apps.'
   s.description      = <<-DESC
-Cheats is an implementation of retro-style cheat codes (such as the Konami code) for iOS apps. Combine a sequence of actions consisting of swipes and key presses to create a cheat code for unlocking features or Easter eggs in your app.
+Cheats is an implementation of retro-style cheat codes (such as the Konami code) for iOS apps. Combine a sequence of actions consisting of swipes, shake gestures, taps and key presses to create a cheat code for unlocking features or Easter eggs in your app.
                        DESC
   s.homepage         = 'https://github.com/rwbutler/Cheats'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
