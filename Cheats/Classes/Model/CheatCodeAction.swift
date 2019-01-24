@@ -12,7 +12,7 @@ public enum CheatCodeAction {
     case keyPress(_ key: String)
     case shake
     case swipe(_ direction: CheatCodeSwipeDirection)
-    case tap(_ numberOfTaps: UInt)
+    case tap(times: UInt)
 }
 
 extension CheatCodeAction: Equatable {
