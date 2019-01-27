@@ -105,13 +105,15 @@ Once the sequence of actions has been defined, instantiate a `Cheat` and optiona
 
 ```swift
 let cheat = CheatCode(actions: actionSequence) { [weak self] cheatCode in
-    switch cheatCode.status() {
+    switch cheatCode.state() {
         case .matched: // correct
             print("Cheat unlocked!")
         case .matching: // correct *so far*
             print("Further actions required to unlock cheat.")
         case .notMatched: // incorrect
-            print("Cheat incorrect.")       
+            print("Cheat incorrect.") 
+        case .reset: // initial state / sequence reset
+            print("Cheat code sequence reset")      
 }
 ```
 
