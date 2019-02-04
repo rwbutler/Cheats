@@ -10,6 +10,8 @@
 
 Cheats is an implementation of retro-style [cheat codes](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) (such as [the Konami code](https://en.wikipedia.org/wiki/Konami_Code)) for iOS apps. Combine a sequence of actions consisting of swipes, shake gestures, taps and key presses to create a cheat code for unlocking features or [Easter eggs](https://en.wikipedia.org/wiki/Easter_egg_(media)) in your app.
 
+![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/master/docs/images/example.gif)
+
 To learn more about how to use Cheats, take a look at the [blog post](https://medium.com/@rwbutler/retro-video-game-cheat-codes-for-ios-apps-82a6e46ea386) or make use of the table of contents below:
 
 - [Features](#features)
