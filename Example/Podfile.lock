@@ -1,16 +1,23 @@
 PODS:
-  - Cheats (0.1.0)
+  - Cheats (1.2.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Cheats (from `../`)
+  - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SVProgressHUD
 
 EXTERNAL SOURCES:
   Cheats:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cheats: 7b386b52d3c4d4e5acb757398ef084ba66ddabe6
+  Cheats: c3829c01b2c78862e84ffb91063aac7fde661df5
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 9836fb80f3d76836a7bcf97685818ea8c897004b
+PODFILE CHECKSUM: faceaa71b5ed777e716cb252a7f14d6e519cd8da
 
 COCOAPODS: 1.5.0

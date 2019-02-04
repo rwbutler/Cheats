@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'Cheats_Example' do
   pod 'Cheats', :path => '../'
-
+  pod 'SVProgressHUD'
   target 'Cheats_Tests' do
     inherit! :search_paths
 
