@@ -9,7 +9,13 @@
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-Cheats is an implementation of retro-style [cheat codes](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) (such as [the Konami code](https://en.wikipedia.org/wiki/Konami_Code)) for iOS apps. Combine a sequence of actions consisting of swipes, shake gestures, taps and key presses to create a cheat code for unlocking features or [Easter eggs](https://en.wikipedia.org/wiki/Easter_egg_(media)) in your app.
+Cheats is an implementation of console-style [cheat codes](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) (such as [the Konami code](https://en.wikipedia.org/wiki/Konami_Code)) for iOS apps. It includes a `UIGestureRecognizer` for recognizing cheat codes. Combine a sequence of actions consisting of swipes, shake gestures, taps and key presses to create a cheat code for unlocking features or [Easter eggs](https://en.wikipedia.org/wiki/Easter_egg_(media)) in your app.
+
+## Features
+
+- [x] Combine a sequence of actions to make a [cheat code](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) for unlocking a feature or Easter egg in an iOS app.
+- [x] Provides a `UIGestureRecognizer` for ease of integration with `UIViewController`.
+- [x] Available for integration through Cocoapods, Carthage or Swift Package Manager.
 
 ![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/master/docs/images/example.gif)
 
@@ -31,12 +37,6 @@ To learn more about how to use Cheats, take a look at the [blog post](https://me
 - [Additional Software](#additional-software)
 	- [Frameworks](#frameworks)
 	- [Tools](#tools)
-
-## Features
-
-- [x] Combine a sequence of actions to make a [cheat code](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) for unlocking a feature or Easter egg in an iOS app.
-- [x] Provides a `UIGestureRecognizer` for ease of integration with `UIViewController`.
-- [x] Available for integration through Cocoapods, Carthage or Swift Package Manager.
 
 ## Installation
 
