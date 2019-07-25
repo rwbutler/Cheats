@@ -6,7 +6,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/db29ef6403045460c11b/maintainability)](https://codeclimate.com/github/rwbutler/Cheats/maintainability)
 [![License](https://img.shields.io/cocoapods/l/FeatureFlags.svg?style=flat)](http://cocoapods.org/pods/Cheats)
 [![Platform](https://img.shields.io/cocoapods/p/FeatureFlags.svg?style=flat)](http://cocoapods.org/pods/Cheats)
-[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://swift.org/)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://swift.org/)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 Cheats is an implementation of console-style [cheat codes](https://en.wikipedia.org/wiki/Cheating_in_video_games#Cheat_codes) (such as [the Konami code](https://en.wikipedia.org/wiki/Konami_Code)) for iOS apps. It includes a `UIGestureRecognizer` for recognizing cheat codes. Combine a sequence of actions consisting of swipes, shake gestures, taps and key presses to create a cheat code for unlocking features or [Easter eggs](https://en.wikipedia.org/wiki/Easter_egg_(media)) in your app.
