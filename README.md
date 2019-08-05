@@ -89,7 +89,7 @@ To include Cheats as a dependency within a Swift package, add the package to the
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/rwbutler/Cheats.git", from: "4.2.0")
+    .package(url: "https://github.com/rwbutler/Cheats.git", from: "2.0.0")
 ]
 ```
 
