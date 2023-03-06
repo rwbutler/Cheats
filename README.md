@@ -1,4 +1,4 @@
-![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/master/docs/images/cheats-banner.png)
+![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/main/docs/images/cheats-banner.png)
 
 [![CI Status](https://img.shields.io/travis/rwbutler/Cheats.svg?style=flat)](https://travis-ci.org/rwbutler/Cheats)
 [![Version](https://img.shields.io/cocoapods/v/Cheats.svg?style=flat)](https://cocoapods.org/pods/Cheats)
@@ -17,7 +17,7 @@ Cheats is an implementation of console-style [cheat codes](https://en.wikipedia.
 - [x] Provides a `UIGestureRecognizer` for ease of integration with `UIViewController`.
 - [x] Available for integration through Cocoapods, Carthage or Swift Package Manager.
 
-![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/master/docs/images/example.gif)
+![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/main/docs/images/example.gif)
 
 To learn more about how to use Cheats, take a look at the [blog post](https://medium.com/@rwbutler/retro-video-game-cheat-codes-for-ios-apps-82a6e46ea386) or make use of the table of contents below:
 
