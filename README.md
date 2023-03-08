@@ -1,6 +1,6 @@
 ![Cheats](https://raw.githubusercontent.com/rwbutler/Cheats/main/docs/images/cheats-banner.png)
 
-[![CI Status](https://img.shields.io/travis/rwbutler/Cheats.svg?style=flat)](https://travis-ci.org/rwbutler/Cheats)
+[![Build Status](https://img.shields.io/bitrise/64d91dc13e6480b1/main?label=build&logo=bitrise&token=Kaa2zM6rBlKdgXAvlxICWw)](https://app.bitrise.io/app/64d91dc13e6480b1?branch=main)
 [![Version](https://img.shields.io/cocoapods/v/Cheats.svg?style=flat)](https://cocoapods.org/pods/Cheats)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/db29ef6403045460c11b/maintainability)](https://codeclimate.com/github/rwbutler/Cheats/maintainability)
